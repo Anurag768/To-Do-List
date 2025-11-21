@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+  <div class="app-brand">
+    <h1 class="app-title">To-Do List</h1>
+    <p class="app-subtitle">Organize your tasks and stay on track</p>
+  </div>
+
+  <button
+    type="button"
+    class="theme-toggle"
+    id="theme-toggle"
+    aria-label="Toggle dark mode"
+  >
+    🌙
+  </button>
+</header>
+
+
+    <main class="app-main">
+      <!-- Task controls: form + filters -->
+      <section class="task-controls" aria-labelledby="task-controls-heading">
+        <h2 id="task-controls-heading" class="visually-hidden">Task controls</h2>
+        <!-- Task form -->
+        <section class="task-form-section" aria-labelledby="task-form-heading">
+          <h3 id="task-form-heading" class="section-title">Add a new task</h3>
+          <form class="task-form" action="#" method="post">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="task-title">Title</label>
+                <input
+                  type="text"
+                  id="task-title"
+                  name="title"
+                  placeholder="e.g. Complete assignment"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="task-description">Description</label>
+                <textarea
+                  id="task-description"
+                  name="description"
+                  rows="3"
+                  placeholder="Add more details about the task (optional)"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-row form-row--split">
+              <div class="form-field">
+                <label for="task-due-date">Due date</label>
+                <input
+                  type="date"
+                  id="task-due-date"
+                  name="dueDate"
+                >
+              </div>
+              <div class="form-field">
+                <label for="task-priority">Priority</label>
+                <select id="task-priority" name="priority">
+                  <option value="normal">Normal</option>
+                  <option value="low">Low</option>
+                  <option value="high">High</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row form-row--actions">
+              <button type="submit" class="btn btn-primary">
+                Add Task
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Filter buttons -->
+        <section class="task-filters" aria-labelledby="task-filters-heading">
+  <h3 id="task-filters-heading" class="section-title">Filter tasks</h3>
+
+  <div
+    class="filter-group"
+    role="group"
+    aria-label="Filter tasks by status"
+  >
+    <button type="button" class="filter-btn filter-btn--active">
+      All
+    </button>
+    <button type="button" class="filter-btn">
+      Pending
+    </button>
+    <button type="button" class="filter-btn">
+      Completed
+    </button>
+  </div>
+
+  <div class="filter-extra">
+    <div class="search-wrapper">
+      <input
+        type="text"
+        id="task-search"
+        placeholder="Search tasks..."
+        aria-label="Search tasks by title or description"
+      >
+    </div>
+
+    <div class="sort-wrapper">
+      <label for="task-sort">Sort by</label>
+      <select id="task-sort">
+        <option value="none">Default</option>
+        <option value="dueDate">Due date</option>
+        <option value="priority">Priority</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+ </section>
+
+      <!-- Task list area -->
+      <section class="task-list-section" aria-labelledby="task-list-heading">
+  <h2 id="task-list-heading" class="section-title">Tasks</h2>
+
+  <div class="task-summary">
+    <p class="task-summary-counts">
+      <span id="task-count-total">0</span> total •
+      <span id="task-count-pending">0</span> pending •
+      <span id="task-count-completed">0</span> completed
+    </p>
+    <button
+      type="button"
+      class="btn btn-ghost btn-small"
+      id="clear-completed-btn"
+    >
+      Clear completed
+    </button>
+  </div>
+
+  <ul class="task-list">
+    <li class="task-item task-item--empty">
+      <p>No tasks yet. Add your first task above.</p>
+    </li>
+  </ul>
+</section>
+
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
